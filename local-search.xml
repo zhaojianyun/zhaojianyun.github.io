@@ -5,6 +5,25 @@
   
   <entry>
     <title>java</title>
+    <link href="/2023/07/11/Markdown%E8%AF%AD%E6%B3%95/"/>
+    <url>/2023/07/11/Markdown%E8%AF%AD%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>markdown</p><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><blockquote><p>竖线大于号+空格</p><p>有序列表</p><ol><li>数字加点加空格</li><li></li></ol></blockquote><hr><blockquote><p>无序列表</p><ul><li>星号空格</li></ul></blockquote><hr><blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">三个波浪线加语言名称写代码<br></code></pre></td></tr></table></figure></blockquote><hr><blockquote><p>插入表格–CTRL+t</p><table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table></blockquote><hr><blockquote><p><strong>加粗左右各两个星号</strong></p></blockquote><hr><blockquote><p><code>高亮显示</code></p></blockquote><hr><blockquote><p><em>左右各一个星号斜体</em></p></blockquote><hr><blockquote><p><img src="C:/Users/18047/Desktop/java/imag/图片路劲">导入图片</p></blockquote>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>markdown</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>java</title>
     <link href="/2023/07/10/java/"/>
     <url>/2023/07/10/java/</url>
     
