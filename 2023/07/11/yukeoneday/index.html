@@ -24,7 +24,7 @@
 <meta property="og:description" content="怎么学习  听懂(100%) 多看bug - 多看问题 练打字 - 多敲    人机交互  CLI (Command Line Interface) - 命令行方式 - 需要记忆大量的dos命令,比较繁琐 GUI(Graphical User Interface) - 用户界面方式 - “傻瓜式操作” 可执行程序xx.exe文件[C语言编写之后直接编译的程序],如果以后双击它之后,如果闪退,说明计">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-11T05:37:37.000Z">
-<meta property="article:modified_time" content="2023-07-11T05:40:18.530Z">
+<meta property="article:modified_time" content="2023-07-11T08:00:20.690Z">
 <meta property="article:author" content="zhaojianyun">
 <meta property="article:tag" content="学习的第一天">
 <meta name="twitter:card" content="summary_large_image">
@@ -95,7 +95,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>zhaojianyun&#39;s blog</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.4k 字
+          14k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          79 分钟
+          116 分钟
         
       </span>
     
@@ -679,7 +679,10 @@
 
 </li>
 <li><p>length(str);&#x2F;&#x2F;汉字占3个,其他占1个.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select length(&#x27;穆星宇s&#x27;);<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select length(&#x27;穆星宇s&#x27;);<br></code></pre></td></tr></table></figure>
+
+<p>用上面的字符串函数实现 - 模拟银行账户的输出方式.</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">比如Carmen,显示成C*****<br>Mark,M***<br><br>方法一:<br><span class="hljs-keyword">select</span> first_name,rpad(substring(first_name,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>),char_length(first_name),<span class="hljs-string">&#x27;*&#x27;</span>) <span class="hljs-keyword">from</span> s_emp;<br><br>方法二:<br><span class="hljs-keyword">select</span> first_name,concat(substring(first_name,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>),rpad(<span class="hljs-string">&#x27;*&#x27;</span>,char_length(first_name)<span class="hljs-number">-1</span>,<span class="hljs-string">&#x27;*&#x27;</span>)) <span class="hljs-keyword">from</span> s_emp;<br><br>方法三:<br><span class="hljs-keyword">select</span> first_name,replace(first_name,substring(first_name,<span class="hljs-number">2</span>),rpad(<span class="hljs-string">&#x27;*&#x27;</span>,char_length(first_name)<span class="hljs-number">-1</span>,<span class="hljs-string">&#x27;*&#x27;</span>))<br><span class="hljs-keyword">from</span> s_emp;<br><br>方法四:<br><span class="hljs-keyword">select</span> first_name,<span class="hljs-keyword">insert</span>(first_name,<span class="hljs-number">2</span>,char_length(first_name)<span class="hljs-number">-1</span>,rpad(<span class="hljs-string">&#x27;*&#x27;</span>,char_length(first_name)<span class="hljs-number">-1</span>,<span class="hljs-string">&#x27;*&#x27;</span>)) <span class="hljs-keyword">from</span> s_emp;<br></code></pre></td></tr></table></figure></li>
 </ol>
 </blockquote>
 <hr>
@@ -730,7 +733,11 @@
 
 </li>
 <li><p>truncate(n,d) - 保留数字n的d位小数并返回  - 直接截取</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select truncate(2.222,2);<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select truncate(2.222,2);<br></code></pre></td></tr></table></figure>
+
+<p>练习:</p>
+<p>每次输出,只输出[1,100]之间的随机整数.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select floor(rand()*100+1);<br><br>-- [3,5]之间的随机整数<br>select floor(rand()*3+3);<br></code></pre></td></tr></table></figure></li>
 </ol>
 </blockquote>
 <hr>
@@ -813,9 +820,159 @@
 </li>
 <li><p>timestampdiff(type,d1,d2) - type是YEAR,d1和d2相差的年份,MONTH,月份</p>
 <p>  d1,d2 - yyyymmdd</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select timestampdiff(year,&#x27;20180701&#x27;,&#x27;20230710&#x27;);<br></code></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select timestampdiff(year,&#x27;20180701&#x27;,&#x27;20230710&#x27;);<br></code></pre></td></tr></table></figure>
+
+<p>  日期函数补充</p>
+<blockquote>
+<ul>
+<li>date_add(date,interval expr type)</li>
+<li>date_sub(date,interval expr type)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs mysql">type:<br>year<br>month<br>day<br>hour<br>minute<br>second<br><br>select date_add(now(),interval 1 year);<br>-- 输出一年前的此刻,当前,一年之后的此刻<br>select date_add(now(),interval -12 month);<br>select date_sub(now(),interval 1 year);<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>日期格式化</p>
+<blockquote>
+<p>date_format(date,formatPattern)</p>
+<p>将指定的日期格式化成对应模板的字符串 - 涉及到date类型和字符串类型之间的相互转换的问题.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs mysql">根据format字符串格式化date值  <br>　(在format字符串中可用标志符:  <br>　%m 月名字(january……december)    <br>　%w 星期名字(sunday……saturday)    <br>　%d 有英语前缀的月份的日期(1st, 2nd, 3rd, 等等。）    <br>　%Y 年, 数字, 4 位    <br>　%y 年, 数字, 2 位    <br>　%a 缩写的星期名字(sun……sat)    <br>　%d 月份中的天数, 数字(00……31)    <br>　%e 月份中的天数, 数字(0……31)    <br>　%m 月, 数字(01……12)    <br>　%c 月, 数字(1……12)    <br>　%b 缩写的月份名字(jan……dec)    <br>　%j 一年中的天数(001……366)    <br>　%H 24时制小时(00……23)    <br>　%k 小时(0……23)    <br>　%h 12时小时(01……12)    <br>　%i 小时(01……12)    <br>　%l 小时(1……12)    <br>　%i 分钟, 数字(00……59)    <br>　%r 时间,12 小时(hh:mm:ss [ap]m)    <br>　%t 时间,24 小时(hh:mm:ss)    <br>　%s 秒(00……59)       <br>　%p am或pm    <br>　%w 一个星期中的天数(0=sunday ……6=saturday ）        <br></code></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select date_format(now(),&#x27;%Y年%m月%d日 %H时%i分%s秒&#x27;);<br></code></pre></td></tr></table></figure></blockquote>
+</li>
 </ol>
 <hr>
+</blockquote>
+<h1 id="8-条件查询"><a href="#8-条件查询" class="headerlink" title="8. 条件查询"></a>8. 条件查询</h1><blockquote>
+<p>什么是表达式 &#x3D; 由字面量或者变量以及运算符组成的合法的语句</p>
+<p>字面量 - 字面的意思 - 常量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">int i = 10;<br>int result = i+100;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select 语句<br>where 条件表达式<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>运算符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">&gt; &lt; = != &lt;&gt;  &gt;= &lt;=<br></code></pre></td></tr></table></figure>
+
+<p>条件连接符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">and 连接多个条件的,都是true,返回结果行<br><br>or 只要存在一个为true的条件,则返回结果行<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>其他运算符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs mysql">between m and n       返回某列值在[m,n]之间<br><br>in(列表)  某列的值是否存在于(值1,值2,值3)  之间是一个或者的关系<br><br>not in(列表) 不在某个范围<br><br>is null 判断是否为空,mysql中不要使用=null<br><br>is not null 判断不为空  ,不要使用!=null<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><blockquote>
+<ol>
+<li><p>查询出有提成的员工的名字和提成率以及薪资</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select first_name,salary,commission_pct from s_emp where commission_pct is not null;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>把31部门,41部门以及42部门的员工全部找出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select first_name,dept_id from s_emp where dept_id in(31,41,42);<br>   <br>select first_name,dept_id from s_emp where dept_id=31 or dept_id=41 or dept_id=42;<br>   <br>-- 员工的名称以及员工所在的部门的名称<br>-- 涉及到多表查询<br>select e.first_name 员工,(<br>	select d.name from s_dept d where e.dept_id = d.id<br>) 部门名 from s_emp e;<br>   <br>-- 翻译成for循环<br>for(int i=0;i&lt;25;i++)&#123;<br>	for(int j=0;j&lt;12;j++)&#123;<br>		  if(..)&#123;<br>        //直接输出<br>        Sytem.out.println(i+&quot;:&quot;+j);<br>	    &#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<h1 id="9-课堂练习"><a href="#9-课堂练习" class="headerlink" title="9. 课堂练习"></a>9. 课堂练习</h1><blockquote>
+<ol>
+<li><p>查出在41部门的员工名字,工资</p>
+</li>
+<li><p>查出工资高于1500的员工的信息</p>
+</li>
+<li><p>找出工资大于1200元的员工全名、工资、职称</p>
+</li>
+<li><p>找出工资在1200到1500之间的员工名</p>
+</li>
+<li><p>找出工资大于1500并且没有提成的员工</p>
+</li>
+<li><p>找出名字长度超过5的员工</p>
+</li>
+<li><p>找出员工的工作月数</p>
+</li>
+<li><p>查询员工的工作天数</p>
+</li>
+<li><p>当前日期前六个月的最后一天</p>
+</li>
+<li><p><strong>把员工的入职日期格式化为年&#x2F;月&#x2F;日</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select first_name,date_format(start_date,&#x27;%Y/%m/%d&#x27;) from s_emp;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>找出5月份入职的员工</p>
+</li>
+<li><p><strong>查出名字是以M打头的员工</strong></p>
+</li>
+<li><p><strong>查出姓名中第三个字母是e的员工</strong></p>
+</li>
+<li><p>找出费用超过10000元的订单编号及支付方式</p>
+</li>
+<li><p><strong>找出名字first_name中含有字母a的员工</strong></p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="10-模糊查询"><a href="#10-模糊查询" class="headerlink" title="10. 模糊查询"></a>10. 模糊查询</h1><blockquote>
+<ol>
+<li>like - 匹配任意<strong>多个</strong>任意字符(包括0个)</li>
+<li>_ 匹配任意<strong>单个</strong>字符</li>
+</ol>
+</blockquote>
+<hr>
+<blockquote>
+<ol>
+<li><p>找出名字first_name中含有字母e的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from s_emp where first_name like &#x27;%e%&#x27;;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查出名字是以M打头的员工</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from s_emp where first_name like &#x27;M%&#x27;;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查出姓名中第三个字母是e的员工</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from s_emp where first_name like &#x27;__e%&#x27;;<br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li><p>查找6月份入职的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select first_name,start_date from s_emp where start_date like &#x27;%-06-%&#x27;;<br><br>-- 推荐使用日期函数<br>select first_name,start_date from s_emp where month(start_date) = 6;<br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<hr>
+<blockquote>
+<p>拓展: 使用转义字符\</p>
+<p>场景: 万一first_name本身的值就包含_或者%</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">update s_emp set first_name=&#x27;Car_men&#x27; where id=1;<br>update s_emp set first_name=&#x27;Ma_rk&#x27; where id = 4;<br></code></pre></td></tr></table></figure>
+
+<p>需求:查询出first_name中包含_的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select first_name from s_emp where first_name like &#x27;%\_%&#x27;;<br><br>-- 补充,可以使用escape来定义一个临时的转义字符的<br>select first_name from s_emp where first_name like &#x27;%?_%&#x27; escape &#x27;?&#x27;;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<h1 id="11-排序"><a href="#11-排序" class="headerlink" title="11. 排序"></a>11. 排序</h1><blockquote>
+<ol>
+<li><p>升序</p>
+<p>order by 排序列 [asc]</p>
+</li>
+<li><p>降序</p>
+<p>order by 排序列 desc</p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>排序不建议使用的,真实开发中,还是推荐使用java排序的.</p>
+<ol>
+<li><p><strong>自动排序 - 插入的时候根据索引自动排序</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs mysql">drop table t_ord;<br>create table t_ord(<br>  -- 主键列默认就是索引列 - 主键索引<br>	id int primary key,<br>  name varchar(20)<br>);<br>-- insert插入数据<br>insert into t_ord values(2,&#x27;tom&#x27;);<br>insert into t_ord values(1,&#x27;admin&#x27;);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>根据工资进行排序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">-- order by 具体的列名<br>select first_name,salary from s_emp order by salary;<br><br>select first_name,salary from s_emp order by salary desc;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs mysql">-- order by 列别名<br>select first_name,salary sal_ from s_emp order by sal_;<br><br>select first_name,salary*12*(1+coalesce(commission_pct,0)/100) yearSal_ from s_emp<br>order by yearSal_;<br><br>-- 比较推荐的方式 - 排序性能得到优化的一种<br>-- order by 列的序号 - 序号从1开始<br>select first_name,salary*12*(1+coalesce(commission_pct,0)/100) 年薪 from s_emp<br>order by 2 desc;<br><br>-- 优先按照年薪降序排,如果年薪一致的时候,希望继续按照first_name升序排<br>select first_name,salary*12*(1+coalesce(commission_pct,0)/100) 年薪 from s_emp<br>order by 2 desc,1;<br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="12-数字和字符串之间的转换"><a href="#12-数字和字符串之间的转换" class="headerlink" title="12. 数字和字符串之间的转换"></a>12. 数字和字符串之间的转换</h1><blockquote>
+<ol>
+<li><p>字符串转数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">-- +是java中唯一重载[具备多个意义]的运算符<br><br>-- 将字符串转换成数字,然后进行加法运算<br>select &#x27;1&#x27;+0;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>数字转字符串</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">concat函数<br>select concat(1,&#x27;&#x27;);<br></code></pre></td></tr></table></figure></li>
+</ol>
 </blockquote>
 
                 
@@ -994,7 +1151,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/zhaojianyun/zhaojianyun.github.io.git" target="_blank" rel="nofollow noopener"><span>zhaojianyun</span></a> 
     </div>
   
   
