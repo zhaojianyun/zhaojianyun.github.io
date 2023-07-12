@@ -16,19 +16,22 @@
   <meta name="author" content="zhaojianyun">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://example.com/2023/07/12/test/index.html">
+    <meta name="description" content="1.查出在10部门的员工名字,工资 1select ename,salary from emp where deptno &#x3D; 10;  2.找出工资大于1200元的员工全名、工资、职称 1select ename,salary,job from emp where salary &gt;1200;  3.查出在10，30部门的员工名,薪水 1select ename,salary from emp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql练习">
+<meta property="og:url" content="http://example.com/2023/07/12/mysql%E7%BB%83%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.查出在10部门的员工名字,工资 1select ename,salary from emp where deptno &#x3D; 10;  2.找出工资大于1200元的员工全名、工资、职称 1select ename,salary,job from emp where salary &gt;1200;  3.查出在10，30部门的员工名,薪水 1select ename,salary from emp">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-12T05:33:40.000Z">
-<meta property="article:modified_time" content="2023-07-12T06:32:46.039Z">
+<meta property="article:published_time" content="2023-07-12T09:39:24.000Z">
+<meta property="article:modified_time" content="2023-07-12T09:39:56.504Z">
 <meta property="article:author" content="zhaojianyun">
+<meta property="article:tag" content="好好学习">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>test - Hexo</title>
+  <title>mysql练习 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="test"></span>
+            <span id="subtitle" data-typed-text="mysql练习"></span>
           
         </div>
 
@@ -205,7 +208,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-12 13:33" pubdate>
+        <time datetime="2023-07-12 17:39" pubdate>
           2023年7月12日 下午
         </time>
       </span>
@@ -217,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          2.2k 字
         
       </span>
     
@@ -228,7 +231,7 @@
         
         
         
-          1 分钟
+          19 分钟
         
       </span>
     
@@ -265,12 +268,169 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">test</h1>
+            <h1 id="seo-header">mysql练习</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <p>1.查出在10部门的员工名字,工资</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select ename,salary from emp where deptno = 10;<br></code></pre></td></tr></table></figure>
+
+<p>2.找出工资大于1200元的员工全名、工资、职称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select ename,salary,job from emp where salary &gt;1200;<br></code></pre></td></tr></table></figure>
+
+<p>3.查出在10，30部门的员工名,薪水</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select ename,salary from emp where deptno = 10 or deptno = 30;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>4.找出工资大于1500并且没有提成的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from emp where salary &gt; 1500 and comm is null;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>5.查出名字是以M打头的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from emp where ename like &quot;M%&quot;;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>6.查出姓名中第三个字母是e的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from emp where ename like &quot;__e%&quot;;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>7.找出没有提成率的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from emp where comm is null;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>8.找出工资在950(含)至1200(含)元的员工姓名、职称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select ename,job from emp where salary between 950 and 1200;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>9.找出2月份入职的员工名、入职时间、工资</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select ename,hiredate,salary from emp where month(hiredate) = 2;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>查询出所有员工的职位，不重复</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select distinct job from emp;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>查询出各个部门的员工数量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select deptno,count(*) zonji from emp group by deptno;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>– 查询出各年份入职的员工情况（年份，员工人数）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select year(hiredate) as year,count(*) renshu from emp group by year(hiredate) order by year(hiredate);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>– 查询出每年每月入职的员工情况（年份月份，员工人数）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select year(hiredate) as year,month(hiredate) as month, count(*) renshu from emp group by year(hiredate),month(hiredate) order by year(hiredate),month(hiredate);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>【1. 字符函数】	<br>    1.获得’goodmorning’ 的字符长度	</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select char_length(&#x27;goodmorning&#x27;);<br></code></pre></td></tr></table></figure>
+
+
+<p>?	2.将Hello全部转换成小写字母</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select lower(&#x27;Hello&#x27;);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>?	3.将Hello全部转换成大写字母</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select upper(&#x27;Hello&#x27;);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>?	4.将hello首字母变为大写字母	 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select concat(ucase(left(&#x27;hello&#x27;, 1)), substring(&#x27;hello&#x27;, 2)) as capitalized_string;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>?	5.将’hello’ 与 ‘tom’  ,’good’拼接成一个单词</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select concat(&#x27;hello&#x27;,&#x27;tom&#x27;,&#x27;good&#x27;) AS concatenated_word;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>?	6.获得’goodmorning’ 的第4 个字母	</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select substring(&#x27;goodmorning&#x27;,4,1);<br></code></pre></td></tr></table></figure>
+
+
+<p>?	7.截取’goodmorning’ 的moring 单词</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select substring(&#x27;goodmorning&#x27;,5);<br></code></pre></td></tr></table></figure>
+
+
+<p>?	8.截取’Good  morning ！I’m Tom ‘   中的’o’ 用’A’来替代</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select replace(&#x27;Good  morning ！I\&#x27;m Tom &#x27;,&#x27;o&#x27;,&#x27;A&#x27;);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>【2. 日期函数】	<br>1.获得当前日期</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select now();<br></code></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><p>获得某一个日期的年份，月份，日期</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select curdate();<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>获得某一个日期的星期</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select weekday(now());<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>获得当前日期的时分秒</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select curtime();<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>获得2天后的日期</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select date_add(curdate(),interval 2 day);<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>获得前2天的日期</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select date_sub(curdate(),interval 2 day);<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>获得两个日期相差的年份，月份，天数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select datediff(&#x27;20230711&#x27;,&#x27;20230713&#x27;);<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>【3. 数值函数】	<br>1.获得38934.4383的整数部分</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select floor(38934.4383);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>2.将38934.4387的保留2位小数，不需要四舍五入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select truncate(38934.4389,2);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>3.将38934.4387的保留2位小数，需要四舍五入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select round(38934.4387,2);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>4.获得不小于38934.4383的最小正整数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select ceiling(38934.4383);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>5.获得不大于38934.4383的最大的正整数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select floor(38934.4383);<br></code></pre></td></tr></table></figure>
+
+
+
+
                 
               </div>
             
@@ -278,6 +438,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%A5%BD%E5%A5%BD%E5%AD%A6%E4%B9%A0/" class="print-no-link">#好好学习</a>
+      
+    </div>
   
 </div>
 
@@ -287,8 +454,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>test</div>
-      <div>http://example.com/2023/07/12/test/</div>
+      <div>mysql练习</div>
+      <div>http://example.com/2023/07/12/mysql练习/</div>
     </div>
     <div class="license-meta">
       
@@ -332,18 +499,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/12/yukethreeday/" title="yukethreeday">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">yukethreeday</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/11/yuketwoday/" title="yuketwoday">
-                        <span class="hidden-mobile">yuketwoday</span>
+                      <a href="/2023/07/12/yukethreeday/" title="yukethreeday">
+                        <span class="hidden-mobile">yukethreeday</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
