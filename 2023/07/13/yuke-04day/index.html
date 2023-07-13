@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 软件 vscode 前端的开发工具,主流的还有webstorm以及hbuilder   chrome 浏览器,前端的调试工具,支持w3cshool标准最好的一款浏览器 firefox浏览器 - 火狐   安装 - Vue.js devtools   2. 安装科学上网略… 3. vue介绍 重点性 - 简历加分项 + 后端硬性招聘要求 前后端工作是分离的,但是人没有分离的.   H5[前端体">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/yuke-04day%5C%E7%BB%84%E4%BB%B6%E5%BC%8F.png">
+<meta property="og:image" content="http://example.com/.%5Cyuke-04day%5C%E7%BB%84%E4%BB%B6%E5%BC%8F.png">
 <meta property="og:image" content="http://example.com/yuke-04day%5CDiff.png">
-<meta property="og:image" content="d:\hello-hexo\hello-blog\source_posts\yuke-04day\dp01.png">
-<meta property="og:image" content="d:\hello-hexo\hello-blog\source\_posts\yuke-04day\dp02.png">
-<meta property="og:image" content="d:\hello-hexo\hello-blog\source_posts\yuke-04day\dp03.png">
-<meta property="og:image" content="http://example.com/yuke-04day%5C%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%9B%BE%E7%A4%BA.png">
+<meta property="og:image" content="http://example.com/.%5Cyuke-04day%5Cdp01.png">
+<meta property="og:image" content="http://example.com/2023/07/13/yuke-04day/yuke-04day/dp02.png">
+<meta property="og:image" content="http://example.com/.%5Cyuke-04day%5Cdp03.png">
+<meta property="og:image" content="http://example.com/.%5Cyuke-04day%5C%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%9B%BE%E7%A4%BA.png">
 <meta property="article:published_time" content="2023-07-13T08:50:02.000Z">
-<meta property="article:modified_time" content="2023-07-13T09:05:23.907Z">
+<meta property="article:modified_time" content="2023-07-13T09:14:06.632Z">
 <meta property="article:author" content="zhaojianyun">
 <meta property="article:tag" content="学习第四天">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/yuke-04day%5C%E7%BB%84%E4%BB%B6%E5%BC%8F.png">
+<meta name="twitter:image" content="http://example.com/.%5Cyuke-04day%5C%E7%BB%84%E4%BB%B6%E5%BC%8F.png">
   
   
   
@@ -338,7 +338,7 @@
 <p><code>采用的是声明式编码,不再需要js去操作dom了,比较方便</code></p>
 </li>
 <li><p>采用组件化编程的方式.提高组件的复用性</p>
-<p><img src="/yuke-04day%5C%E7%BB%84%E4%BB%B6%E5%BC%8F.png" srcset="/img/loading.gif" lazyload> 3.采用的是虚拟DOM+diff算法,复用dom节点,提高效率</p>
+<p><img src="/.%5Cyuke-04day%5C%E7%BB%84%E4%BB%B6%E5%BC%8F.png" srcset="/img/loading.gif" lazyload> 3.采用的是虚拟DOM+diff算法,复用dom节点,提高效率</p>
 <p><img src="/yuke-04day%5CDiff.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 </ol>
@@ -448,16 +448,16 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-comment">//比如定义一个json对象</span></span><br><span class="language-javascript">  <span class="hljs-keyword">let</span> user=&#123;</span><br><span class="language-javascript">    <span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;qiqi&#x27;</span>,</span><br><span class="language-javascript">    <span class="hljs-attr">sex</span>:<span class="hljs-string">&#x27;F&#x27;</span></span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>(user,<span class="hljs-string">&#x27;age&#x27;</span>,&#123;</span><br><span class="language-javascript">    <span class="hljs-attr">value</span>:<span class="hljs-number">18</span></span><br><span class="language-javascript">  &#125;)</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-comment">//遍历/迭代对象中所有的属性</span></span><br><span class="language-javascript">  <span class="hljs-comment">//age默认是不可被迭代</span></span><br><span class="language-javascript">  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(user));</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> k <span class="hljs-keyword">in</span> user)&#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(k);      </span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(user)</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>浏览器控制台</p>
-<p><img src="D:\hello-hexo\hello-blog\source_posts\yuke-04day\dp01.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/.%5Cyuke-04day%5Cdp01.png" srcset="/img/loading.gif" lazyload></p>
 <ol>
 <li><p>使用 Object.defineProperty定义的属性是灰色的.</p>
 <p>代表这个属性不可被迭代&#x2F;遍历</p>
 </li>
 <li><p>默认是不可被删除的</p>
-<img src="D:\hello-hexo\hello-blog\source\_posts\yuke-04day\dp02.png" srcset="/img/loading.gif" lazyload style="zoom: 67%;" />
+<img src=".\yuke-04day\dp02.png" srcset="/img/loading.gif" lazyload style="zoom: 67%;" />
 
 <p>3.默认不可被修改</p>
-<p><img src="D:\hello-hexo\hello-blog\source_posts\yuke-04day\dp03.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/.%5Cyuke-04day%5Cdp03.png" srcset="/img/loading.gif" lazyload></p>
 <hr>
 <p>配置项讲解,让Object.defineProperty定义的属性可以被迭代,修改,删除</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html">Object.defineProperty(user,&#x27;age&#x27;,&#123;<br>  value:18,<br>  // 配置项<br>  //可以被修改<br>  writable:true,<br>  // 可以被删除<br>  configurable:true,<br>  //可以被枚举/遍历/迭代<br>  enumerable:true<br>&#125;)<br></code></pre></td></tr></table></figure></li>
@@ -486,7 +486,7 @@
 </blockquote>
 <hr>
 <p>图示</p>
-<p><img src="/yuke-04day%5C%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%9B%BE%E7%A4%BA.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/.%5Cyuke-04day%5C%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%9B%BE%E7%A4%BA.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm">&gt;虽然<span class="hljs-meta">data</span>就是_<span class="hljs-meta">data</span>,底层做了数据劫持[此处_<span class="hljs-meta">data</span>是对<span class="hljs-meta">data</span>功能上面做了升级的],数据是可以流向页面的<br></code></pre></td></tr></table></figure>
 </blockquote>
