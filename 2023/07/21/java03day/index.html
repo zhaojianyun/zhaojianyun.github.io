@@ -16,22 +16,22 @@
   <meta name="author" content="zhaojianyun">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. 类型转换1. 自动类型转换 小的数据类型可以自动转换成大的数据类型 小的数据类型和大的数据类型在计算的时候,计算的结果是偏向类型大的一方 java中看到一个整数,默认是int类型,看到一个小数,默认是double java中默认看到的数字都是属于十进制的数据  支持的转换常见的 byte-&gt;short-&gt;int-&gt;double int-&gt;double char-&amp;gt">
+    <meta name="description" content="1. 方法的定义和使用 方法的定义: 用来完成一段特定代码的片段. 简单理解:就是写了一段逻辑代码,然后把这段代码放入到了方法中了. 因为这个方法是可以被其他地方调用的,并且调用者是无需关心这个方法内部的细节的 - 仅仅关心在这个方法的功能本身. 也是为了提高后期程序的可维护性.  1. 定义方法的语法 123456789定义方法的最全的语法:修饰符 返回类型 方法名称([参数列表]) [thro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="corejavaday02">
-<meta property="og:url" content="http://example.com/2023/07/18/corejavaday02/index.html">
+<meta property="og:title" content="java03day">
+<meta property="og:url" content="http://example.com/2023/07/21/java03day/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 类型转换1. 自动类型转换 小的数据类型可以自动转换成大的数据类型 小的数据类型和大的数据类型在计算的时候,计算的结果是偏向类型大的一方 java中看到一个整数,默认是int类型,看到一个小数,默认是double java中默认看到的数字都是属于十进制的数据  支持的转换常见的 byte-&gt;short-&gt;int-&gt;double int-&gt;double char-&amp;gt">
+<meta property="og:description" content="1. 方法的定义和使用 方法的定义: 用来完成一段特定代码的片段. 简单理解:就是写了一段逻辑代码,然后把这段代码放入到了方法中了. 因为这个方法是可以被其他地方调用的,并且调用者是无需关心这个方法内部的细节的 - 仅仅关心在这个方法的功能本身. 也是为了提高后期程序的可维护性.  1. 定义方法的语法 123456789定义方法的最全的语法:修饰符 返回类型 方法名称([参数列表]) [thro">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-18T00:57:10.000Z">
-<meta property="article:modified_time" content="2023-07-18T12:38:09.368Z">
+<meta property="article:published_time" content="2023-07-21T00:37:57.000Z">
+<meta property="article:modified_time" content="2023-07-21T00:38:47.470Z">
 <meta property="article:author" content="zhaojianyun">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>corejavaday02 - Hexo</title>
+  <title>java03day - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="corejavaday02"></span>
+            <span id="subtitle" data-typed-text="java03day"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-18 08:57" pubdate>
-          2023年7月18日 早上
+        <time datetime="2023-07-21 08:37" pubdate>
+          2023年7月21日 早上
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.3k 字
+          3.1k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          36 分钟
+          27 分钟
         
       </span>
     
@@ -268,160 +268,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">corejavaday02</h1>
+            <h1 id="seo-header">java03day</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="1-类型转换"><a href="#1-类型转换" class="headerlink" title="1. 类型转换"></a>1. 类型转换</h1><h2 id="1-自动类型转换"><a href="#1-自动类型转换" class="headerlink" title="1. 自动类型转换"></a>1. 自动类型转换</h2><ol>
-<li>小的数据类型可以自动转换成大的数据类型</li>
-<li>小的数据类型和大的数据类型在计算的时候,计算的结果是偏向类型大的一方</li>
-<li>java中看到一个整数,默认是int类型,看到一个小数,默认是double</li>
-<li>java中默认看到的数字都是属于十进制的数据</li>
-</ol>
-<p>支持的转换常见的</p>
-<p>byte-&gt;short-&gt;int-&gt;double</p>
-<p>int-&gt;double</p>
-<p>char-&gt;int</p>
-<h2 id="2-强制类型转换"><a href="#2-强制类型转换" class="headerlink" title="2. 强制类型转换"></a>2. 强制类型转换</h2><blockquote>
-<p>大的数据类型需要强制类型转换成小的数据类型</p>
-<p>语法: 较小的数据类型 变量 &#x3D; (较小的数据类型)大的数据类型变量&#x2F;字面量</p>
-</blockquote>
-<h2 id="3-隐式转换"><a href="#3-隐式转换" class="headerlink" title="3. 隐式转换"></a>3. 隐式转换</h2><blockquote>
-<ol>
-<li><p>如何定义float,可以在double类型的数据后面加上f&#x2F;F</p>
-<p>double-&gt;float</p>
-</li>
-<li><p>在int类型数据后面加上l&#x2F;L,int转换成long类型.推荐L</p>
-</li>
-<li><p>定义double类型,还是推荐在double后面加上d&#x2F;D - 提高可读性</p>
-</li>
-</ol>
-</blockquote>
-<hr>
-<blockquote>
-<p>补充:俩个运算符也是可以进行内部的隐式转换的.+&#x3D; ++ –</p>
-</blockquote>
-<hr>
-<h1 id="2-char类型介绍"><a href="#2-char类型介绍" class="headerlink" title="2. char类型介绍"></a>2. char类型介绍</h1><p>java的char类型使用单引号表示,只能表示单个字符.char在java中是16位的,因为java用的是unicode编码</p>
-<p>并且unicode编码是包含8为的ascii码,char类型在计算的时候使用的就是ascii.</p>
-<p>虽然char和short类型都是占2个字节16bit,char保存的值更大一点,它是无符号的,没有负数.</p>
-<p>char类型可以表示的范围是[0.65535]</p>
-<p>面试:为什么char类型可以保存一个汉字,一个汉字在unicode下面占2个字节.</p>
-<hr>
-<h1 id="3-转义字符"><a href="#3-转义字符" class="headerlink" title="3. 转义字符"></a>3. 转义字符</h1><ol>
-<li><p>\b - 退格</p>
-</li>
-<li><p>双引号和单引号分别是</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livescript"><span class="hljs-string">\&quot;</span>  <span class="hljs-string">\&#x27;</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>\t - 制表符</p>
-</li>
-<li><p>\n - 换行,输出完毕之后,光标停在下一行的起始位置</p>
-</li>
-<li><p>\r - 回车,输出完毕之后,光标停在当前行的起始位置</p>
-</li>
-</ol>
-<hr>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">\<span class="hljs-selector-tag">b</span>,\n,\r - 你在idea的伪终端和计算机的终端呈现的效果可能是不一样的!<br></code></pre></td></tr></table></figure>
-
-<h1 id="4-进制换算"><a href="#4-进制换算" class="headerlink" title="4. 进制换算"></a>4. 进制换算</h1><h2 id="1-二进制"><a href="#1-二进制" class="headerlink" title="1. 二进制"></a>1. 二进制</h2><blockquote>
-<p>由数字0,1组成.int类型表示的十进制的数据在计算机底层是采用32位的二进制数表示的.</p>
-<p>逢2进一</p>
-</blockquote>
-<hr>
-<blockquote>
-<ol>
-<li><p>十进制转二进制</p>
-<p>把十进制数不断除以2,直到商是0结束,倒过来取余数.</p>
-<p>比如10 &#x3D;&gt; 精简的二进制1010</p>
-</li>
-<li><p>二进制转十进制</p>
-<p>将二进制的每个位上的数字从左到右依次乘以2的次方[依次递减]</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1011</span> =&gt; <span class="hljs-number">1</span>*<span class="hljs-number">2</span>^<span class="hljs-number">3</span> + <span class="hljs-number">0</span> + <span class="hljs-number">1</span>*<span class="hljs-number">2</span>^<span class="hljs-number">1</span> + <span class="hljs-number">1</span>*<span class="hljs-number">2</span>^<span class="hljs-number">0</span> = <span class="hljs-number">11</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-</blockquote>
-<h2 id="2-八进制"><a href="#2-八进制" class="headerlink" title="2. 八进制"></a>2. 八进制</h2><blockquote>
-<p>由数字0,7组成,逢八进一. 定义int类型的时候,数字前面加0,表示的就是八进制</p>
-<ol>
-<li><p>二进制转换八进制</p>
-<p>将二进制的数,从右到左,每三个一组.如果最高位不足3位,补0即可.</p>
-<p>分别计算出每组对应的十进制的数</p>
-<p><code>为甚三个为一组,111-&gt;最大值是7</code></p>
-<p>001 010 101 010 111 &#x3D;&gt; 012527</p>
-</li>
-<li><p>八进制转换二进制</p>
-<p>把八进制的每个数字转换成对应的三位的二进制</p>
-<p>032 &#x3D; 011 010</p>
-</li>
-<li><p>十进制转八进制</p>
-<p>把十进制数不断除以8,直到商是0结束,倒过来取余数.</p>
-<p>26 &#x3D; 032</p>
-</li>
-<li><p>八进制转十进制</p>
-<p>将八进制的每个位上的数字从左到右依次乘以8的次方[依次递减]</p>
-<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">032 </span>= <span class="hljs-number">3</span>*<span class="hljs-number">8</span>^<span class="hljs-number">1</span> + <span class="hljs-number">2</span>*<span class="hljs-number">8</span>^<span class="hljs-number">0</span> = <span class="hljs-number">26</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-</blockquote>
-<h2 id="3-十六进制"><a href="#3-十六进制" class="headerlink" title="3. 十六进制"></a>3. 十六进制</h2><blockquote>
-<p>数字0,9或者a~f&#x2F;A-F组成,逢16进一</p>
-<p>表示:0xf212 0x00b0</p>
-<ol>
-<li><p>二进制转十六进制</p>
-<p>将二进制的数,从右到左,每四个一组.如果最高位不足4位,补0即可.</p>
-<p>分别计算出每组对应的十进制的数.</p>
-<p>1011 1110 1010 1111 1101 &#x3D;&gt; 0xbeafd</p>
-</li>
-<li><p>十六进制转二进制</p>
-<p>把十六进制的每个数字转换成对应的四位的二进制</p>
-</li>
-</ol>
-</blockquote>
-<hr>
-<h1 id="5-运算符"><a href="#5-运算符" class="headerlink" title="5. 运算符"></a>5. 运算符</h1><h2 id="1-算术运算符"><a href="#1-算术运算符" class="headerlink" title="1. 算术运算符"></a>1. 算术运算符</h2><blockquote>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">+   java中唯一重载的运算符.   纯数值之间表示加法计算,如果中间出现了字符串(&quot;&quot;)表示拼接<br><span class="hljs-bullet">-</span><br><span class="hljs-bullet"></span>/   除法,    特殊的场景:取整(纯整数之间)<br>%   取余/取模<br><br>/和%应用 - 给定一个数字,可以获取出每个位上的数字.<br><br><span class="hljs-code">++ 前+</span><span class="hljs-code">+后+</span>+<br><br><span class="hljs-bullet">-- </span>前--和后--<br><span class="hljs-code">  </span><br><span class="hljs-bullet">*</span><br><span class="hljs-bullet">  </span><br><span class="hljs-bullet"></span>+= -= /= %= *= <br><span class="hljs-code">  </span><br><span class="hljs-section">= 赋值操作</span><br></code></pre></td></tr></table></figure>
-</blockquote>
-<h2 id="2-比较运算符"><a href="#2-比较运算符" class="headerlink" title="2. 比较运算符"></a>2. 比较运算符</h2><blockquote>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">&gt; &lt; &gt;<span class="hljs-operator">=</span> &lt;<span class="hljs-operator">=</span> <span class="hljs-operator">=</span><span class="hljs-operator">=</span><br></code></pre></td></tr></table></figure>
-</blockquote>
-<h2 id="3-逻辑运算符"><a href="#3-逻辑运算符" class="headerlink" title="3. 逻辑运算符"></a>3. 逻辑运算符</h2><blockquote>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs gradle">逻辑非!  放在<span class="hljs-keyword">boolean</span>表达式/<span class="hljs-keyword">boolean</span>值前面<br>  <br>&amp;&amp; 逻辑与<span class="hljs-regexp">/短路与 - 作用就是用来连接条件表达式/</span><span class="hljs-keyword">boolean</span>值<br>   短路的意思就是如果存在多个条件表达式,左边的结果已经能够决定整个结果的话,那么后面的表达式将不会执行.<br>   所有的表达式都是<span class="hljs-keyword">true</span>的时候,才会返回<span class="hljs-keyword">true</span><br>  <br>   注意: 将返回结果最有可能是<span class="hljs-keyword">false</span>的条件表达式放在最左边<br>     <br>|| 逻辑或<span class="hljs-regexp">/短路或 - 作用就是用来连接条件表达式/</span><span class="hljs-keyword">boolean</span>值<br>   短路的意思就是如果存在多个条件表达式,左边的结果已经能够决定整个结果的话,那么后面的表达式将不会执行.<br>   只要存在一个<span class="hljs-keyword">true</span>,结果就是<span class="hljs-keyword">true</span> <br>     <br>   注意: 将返回结果最有可能是<span class="hljs-keyword">true</span>的条件表达式放在最左边<br></code></pre></td></tr></table></figure>
-</blockquote>
-<h2 id="4-位运算符"><a href="#4-位运算符" class="headerlink" title="4. 位运算符"></a>4. 位运算符</h2><blockquote>
-<p>移位操作 - 移位操作是性能最高的运算</p>
-<p><em><strong>面试题:请你用最高性能的方式计算出2的3次方. 2&lt;&lt;2</strong></em></p>
-</blockquote>
-<blockquote>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs dns">&gt;&gt;  带符号的右移动,向右移动几位,就在最高位补符号位<br>&gt;&gt;&gt; 不带符号的右移动,向右移动几位,最高位补<span class="hljs-number">0</span><br>&lt;&lt; 左移动<br>  <br>~ 按位取反<br>  <br>&amp; 按位与/非短路与<br>  作用<span class="hljs-number">1</span>: 也是可以用来连接条件的.也是所有的条件表达式都是true,才会返回true.但是所有的表达式都会执行 - 一般不会推荐使用的.<br>  作用<span class="hljs-number">2</span>: 用来进行与运算的. 十进制值转换成二进制.在进行与运算的时候,每一个位置一一对应.都是<span class="hljs-number">1</span>的时候,计算的结果才是<span class="hljs-number">1</span>.<br>        <span class="hljs-number">10</span> &amp; <span class="hljs-number">8</span> = <span class="hljs-number">8</span><br>        <span class="hljs-number">1 0 1 0</span><br>        <span class="hljs-number">1 0 0 0</span><br>       ----------<br>        <span class="hljs-number">1 0 0 0</span><br>   应用: 进行一个奇数和偶数的判断.<br>     <br>| 按位或/非短路或<br>   作用<span class="hljs-number">1</span>: 也是可以用来连接条件的.只要存在一个表达式为true,就返回true.但是所有的表达式都会执行 - 一般不会推荐使用的.<br>   作用<span class="hljs-number">2</span>: 用来进行或运算的. 十进制值转换成二进制.在进行与运算的时候,每一个位置一一对应.只要有一个<span class="hljs-number">1</span>的时候,计算的结果就是<span class="hljs-number">1</span><br>     <br>   <span class="hljs-number">10</span> | <span class="hljs-number">8</span> = <span class="hljs-number">10</span><br>   <span class="hljs-number">1 0 1 0</span><br>   <span class="hljs-number">1 0 0 0</span> <br>   -------<br>   <span class="hljs-number">1 0 1 0</span><br>     <br>^ 异或,相同为<span class="hljs-number">0</span>,不同为<span class="hljs-number">1</span><br>  <span class="hljs-number">10</span> ^ <span class="hljs-number">8</span> = <span class="hljs-number">2</span><br>  <span class="hljs-number">1 0 1 0</span><br>  <span class="hljs-number">1 0 0 0</span><br>  -------<br>  <span class="hljs-number">0 0 1 0</span><br>     <br>  <span class="hljs-number">10</span> ^ <span class="hljs-number">8</span> ^ <span class="hljs-number">8</span> = <span class="hljs-number">10</span>    结论: 一个数连续异或同一个数俩次,结果是它本身.   未来 - 简单的加密和解密的操作.<br>  <br>    <span class="hljs-number">0 0 1 0</span><br>  ^ <span class="hljs-number">1 0 0 0</span><br>    -------<br>    <span class="hljs-number">1 0 1 0</span> <br>    <br>   面试:交换俩个变量的值.<br></code></pre></td></tr></table></figure>
-</blockquote>
-<p>负数的二进制该如何计算? - 负数的二进制在计算机中是以补码的形式存在! - 为了计算机简化减法的操作的.</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">注意:正数的原码,反码以及补码都是它本身</span><br></code></pre></td></tr></table></figure>
-
-<p>符号位是32bit的二进制的最高位. 0 代表正数,1代表负数</p>
-<p>反码 &#x3D; 对原码进行按位取反[符号位不变]</p>
-<p>补码的公式 &#x3D; 反码 + 1</p>
-<p>-10对应的原码 10000000 00000000 00000000 00001010</p>
-<p>-10反码的反码 11111111 11111111 11111111 11110101</p>
-<p>-10的补码 +1</p>
-<p> 11111111 11111111 11111111 11110110</p>
-<hr>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">技巧的东西~9<br></code></pre></td></tr></table></figure>
-
-<p>9的二进制 00000000 00000000 00000000 00001001</p>
-<p>~9的结果 11111111 11111111 11111111 11110110</p>
-<p><del>9 &#x3D; -10,总结出***</del>x &#x3D; -(x+1)***</p>
-<hr>
-<p>-10 &gt;&gt;&gt; 2</p>
-<p>00111111111111111111111111111101 &#x3D; 1073741821</p>
-<hr>
-<p>-10&gt;&gt;2 &#x3D; 负数十进制 &#x3D; ~m</p>
-<p>11111111111111111111111111111101 &#x3D; ~2 &#x3D; -3</p>
-<p>00000000000000000000000000000010</p>
-<hr>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs subunit">练习<span class="hljs-string">-15</span>&gt;&gt;2和<span class="hljs-string">-15</span>&gt;&gt;2<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="6-方法的定义和使用"><a href="#6-方法的定义和使用" class="headerlink" title="6. 方法的定义和使用"></a>6. 方法的定义和使用</h1><blockquote>
+                <h1 id="1-方法的定义和使用"><a href="#1-方法的定义和使用" class="headerlink" title="1. 方法的定义和使用"></a>1. 方法的定义和使用</h1><blockquote>
 <p>方法的定义: 用来完成一段特定代码的片段. 简单理解:就是写了一段逻辑代码,然后把这段代码放入到了方法中了.</p>
 <p>因为这个方法是可以被其他地方调用的,并且调用者是无需关心这个方法内部的细节的 - 仅仅关心在这个方法的功能本身.</p>
 <p>也是为了提高后期程序的可维护性.</p>
@@ -497,6 +349,131 @@
 <li>java.text</li>
 <li>java.io</li>
 </ol>
+<hr>
+<h2 id="5-私有方法的应用场景"><a href="#5-私有方法的应用场景" class="headerlink" title="5. 私有方法的应用场景"></a>5. 私有方法的应用场景</h2><blockquote>
+<ol>
+<li><p>简化api - 方便程序的,减少对程序员的干扰</p>
+</li>
+<li><p>场景</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs csharp">NB-Util类 - NB的方法 - 非常复杂的<br>     <br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">nb01</span>()</span>&#123;<br>  <span class="hljs-comment">//非常复杂的业务逻辑 - coding</span><br>  <span class="hljs-comment">//common...公开的重复的代码</span><br>  commonNb();<br>&#125;<br>   <br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">nb02</span>()</span>&#123;<br>  <span class="hljs-comment">//非常复杂的业务逻辑 - coding</span><br>  <span class="hljs-comment">//common - 公开的重复的代码</span><br>  commonNb();<br>&#125;<br>   <br><span class="hljs-comment">//commonNb单独拿出用的话 - 到底有没有用.</span><br><span class="hljs-comment">//如果单独被调用,不会产生什么业务功能的话</span><br>   <br><span class="hljs-comment">//&quot;小螺丝的代码,不需要对外公开的代码 - 有必要定义成私有的&quot;</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">commonNb</span>()</span>&#123;<br>     <br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="2-递归算法"><a href="#2-递归算法" class="headerlink" title="2. 递归算法"></a>2. 递归算法</h1><blockquote>
+<p>使用解决大量的需要重复计算的业务.<code>和循环算法比较起来的话 - 递归算法性能是比较低下,需要保存中间的临时的值</code></p>
+</blockquote>
+<blockquote>
+<ol>
+<li>递 - 将一个问题,分解成若干个子问题.并且发现这些子问题的解决过程是重复的&#x2F;一样的.</li>
+<li>归 - 一定要指定一个递归的出口 - 临界值 - 不符合”递”的条件.</li>
+</ol>
+</blockquote>
+<hr>
+<p>递归的步骤</p>
+<ol>
+<li>指定递归出口,如果没有指定递归出口,抛出java.lang.StackOverflowError</li>
+<li>方法体中调用自己.</li>
+</ol>
+<hr>
+<p>练习:</p>
+<ol>
+<li><p><strong>求*斐波那契*数列</strong></p>
+<p><strong>1 1 2 3 5 8 13 21 34 55 …</strong></p>
+</li>
+<li><p><strong>求阶乘</strong></p>
+</li>
+</ol>
+<hr>
+<ol>
+<li><p>求出俩个数的最大公约数 - 辗除法</p>
+</li>
+<li><p>求杨辉三角坐标的数值</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-number">1</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">1</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">1</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">1</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">4</span> <span class="hljs-number">6</span> <span class="hljs-number">4</span> <span class="hljs-number">1</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">5</span> <span class="hljs-number">10</span> <span class="hljs-number">10</span> <span class="hljs-number">5</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>自闭题 - 给定一个数字,依次按照顺序输出这个数字每位上的数字</p>
+<p>比如1234, 直接输出1 2 3 4 &#x3D;&gt; &#x2F; %</p>
+<p>1234&#x2F;10 &#x3D; 123 &#x2F; 10 &#x3D; 12 &#x2F; 10 &#x3D; 1 % 10 &#x3D; 1</p>
+<p>5 &#x3D;&gt; 5%10&#x3D;5</p>
+<hr>
+</li>
+</ol>
+<h1 id="3-方法的重载"><a href="#3-方法的重载" class="headerlink" title="3. 方法的重载"></a>3. 方法的重载</h1><blockquote>
+<p>简化api - 方便调用</p>
+<p>overload</p>
+<p>发生的条件</p>
+<ol>
+<li><p>重载的方法是在同一个类中.</p>
+</li>
+<li><p>重载的方法的名称是相同的</p>
+</li>
+<li><p>重载的方法的参数列表一定不同</p>
+<p>3-1. 个数一样,类型不一样</p>
+<p>3-2. 个数不一样</p>
+</li>
+<li><p>重载的方法返回类型可以一样&#x2F;不一样</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="4-java-lang-Math-C"><a href="#4-java-lang-Math-C" class="headerlink" title="4. java.lang.Math[C]"></a>4. java.lang.Math[C]</h1><blockquote>
+<p>学习如何使用api学习手册 - 如何使用jdk中内置的类中的有用的方法.</p>
+</blockquote>
+<blockquote>
+<p><code>Math</code>类包含执行基本数字运算的方法，如基本指数，对数，平方根和三角函数。</p>
+</blockquote>
+<blockquote>
+<p>发现方法都是采用static修饰的,直接使用类名来调用.</p>
+</blockquote>
+<blockquote>
+<p>常见的方法:max,min,abs,pow,sqrt,random</p>
+<p>笔试:floor和round</p>
+</blockquote>
+<h1 id="5-条件分支语句"><a href="#5-条件分支语句" class="headerlink" title="5. 条件分支语句"></a>5. 条件分支语句</h1><ol>
+<li>if-else语句 - 比较灵活.<ul>
+<li>if语句可以单独使用.如果if块中只有一行代码,那么{}省略不写的.</li>
+<li>if括号中只能是boolean值或者条件表达式,为true,则进入{}中执行</li>
+<li>if和else , true&#x3D;&gt;if块,false&#x3D;&gt;else块,else块中如果只有一行代码,同样{}可以省略不写的.</li>
+<li>if-else if - else if - else - 注意条件之间要互斥.</li>
+<li>if或者else都是允许嵌套使用的.</li>
+</ul>
+</li>
+<li>switch-case语句</li>
+<li>三元操作符 - 三目运算符</li>
+</ol>
+<hr>
+<h1 id="6-循环语句"><a href="#6-循环语句" class="headerlink" title="6. 循环语句"></a>6. 循环语句</h1><h2 id="1-for循环"><a href="#1-for循环" class="headerlink" title="1. for循环"></a>1. for循环</h2><p>for循环分类 - <em><strong>单层for循环</strong></em>以及<em><strong>嵌套for循环</strong></em>,但是不推荐超过3层for,嵌套越多,性能越低.</p>
+<ol>
+<li><p>单层for循环语法</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-keyword">for</span>循环的复合形态 - 不推荐使用 - 可读性比较差<br><span class="hljs-function"><span class="hljs-title">for</span><span class="hljs-params">(同时初始化俩个变量;表达式②;表达式③)</span></span>&#123;<br>  <span class="hljs-comment">//循环体...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-keyword">for</span>(表达式①;表达式②;表达式③)&#123;<br>  <span class="hljs-comment">//循环体</span><br>&#125;<br><br>表达式① - 变量因子的初始化,比如<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>;<br>          只会走一次<br>            <br>表达式② - 循环退出的条件,比如i&lt;<span class="hljs-number">3</span>;<br>          表达式②返回<span class="hljs-literal">true</span>,才会进入到循环体中去执行.否则,直接退出循环.<br>          至少走一次<br>            <br>          循环体走完,走表达式③<br>            <br>表达式③ - 变量因子每次循环的变化; 比如,i++<br>          可能执行,可能不执行.<br></code></pre></td></tr></table></figure>
+
+<p><code>表达式省略的场景,常见的俩种</code></p>
+<ol>
+<li>表达式③省略了</li>
+<li>三个表达式都省略了 - 死循环 - 循环体中必然会出现打破循环的语句.</li>
+</ol>
+</li>
+<li><p>嵌套for循环</p>
+</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-comment">//外层for循环</span><br><span class="hljs-built_in">for</span>(表达式①;表达式②;表达式③)&#123;<br>  <span class="hljs-comment">//内层for循环 - 作为外部循环的循环体</span><br>  <span class="hljs-built_in">for</span>(表达式③;表达式④;表达式⑤)&#123;<br>  	<span class="hljs-comment">//循环体</span><br>	&#125;<br>&#125;<br>外部循环执行一次,内层循环执行全部.<br></code></pre></td></tr></table></figure>
+
+<h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><blockquote>
+<ol>
+<li><p>打印图形.</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*</span><br><span class="hljs-comment">   * *</span><br><span class="hljs-comment">  *   *</span><br><span class="hljs-comment"> *     *</span><br><span class="hljs-comment">*       *</span><br><span class="hljs-comment"> *     *</span><br><span class="hljs-comment">  *   * </span><br><span class="hljs-comment">    *   </span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>阶乘和斐波那契数列 - for循环实现一遍</p>
+</li>
+<li><p>打印所有这样的组合,这个组合是三位数. 数字是由1,2,3,4当中的三个组成.</p>
+<p>但是不能出现重复的数据. 比如合法的1,2,3 总共:24个</p>
+<p><code>增加难度:没打印6个换一行!</code></p>
+</li>
+<li><p>关于阶乘的题目</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs erlang-repl">定义一个方法,传入一个参数,比如传入的是<span class="hljs-number">6</span>.<br>程序最终输出的结果,必须是下面的:<br><span class="hljs-number">1</span>!=<span class="hljs-number">1</span><br><span class="hljs-number">2</span>!=<span class="hljs-number">2</span><br><span class="hljs-number">3</span>!=<span class="hljs-number">6</span><br><span class="hljs-number">4</span>!=<span class="hljs-number">24</span><br><span class="hljs-number">5</span>!=<span class="hljs-number">120</span><br><span class="hljs-number">6</span>!=<span class="hljs-number">720</span><br>  <br><span class="hljs-number">1</span>! + <span class="hljs-number">2</span>! + <span class="hljs-number">3</span>! + <span class="hljs-number">4</span>! + <span class="hljs-number">5</span>! + <span class="hljs-number">6</span>!=<span class="hljs-number">873</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
 
                 
               </div>
@@ -521,8 +498,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>corejavaday02</div>
-      <div>http://example.com/2023/07/18/corejavaday02/</div>
+      <div>java03day</div>
+      <div>http://example.com/2023/07/21/java03day/</div>
     </div>
     <div class="license-meta">
       
@@ -534,7 +511,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月18日</div>
+          <div>2023年7月21日</div>
         </div>
       
       
@@ -566,9 +543,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/21/java03day/" title="java03day">
+                      <a href="/2023/07/21/java04day/" title="java04day">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">java03day</span>
+                        <span class="hidden-mobile">java04day</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -576,8 +553,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/17/java-o1day/" title="java-o1day">
-                        <span class="hidden-mobile">java-o1day</span>
+                      <a href="/2023/07/18/corejavaday02/" title="corejavaday02">
+                        <span class="hidden-mobile">corejavaday02</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
