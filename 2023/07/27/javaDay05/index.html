@@ -1,0 +1,846 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zhaojianyun">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1.二维数组 回忆二维数组 元素类型[] 变量 &#x3D; new 元素类型[长度]  元素类型 - 1.决定了数组中可以存储的数据类型;2.元素类型可以是八种基本数据类型以及对象类型 数组本身就是一个对象类型 - int[] 12比如 int[][] arr &#x3D; new int[row][cols];或者 int arr[][] &#x3D; new int[rows][cols];  &#96;二维数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaDay05">
+<meta property="og:url" content="http://example.com/2023/07/27/javaDay05/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.二维数组 回忆二维数组 元素类型[] 变量 &#x3D; new 元素类型[长度]  元素类型 - 1.决定了数组中可以存储的数据类型;2.元素类型可以是八种基本数据类型以及对象类型 数组本身就是一个对象类型 - int[] 12比如 int[][] arr &#x3D; new int[row][cols];或者 int arr[][] &#x3D; new int[rows][cols];  &#96;二维数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/07/27/javaDay05/bubble.gif">
+<meta property="og:image" content="http://example.com/2023/07/27/javaDay05/select.gif">
+<meta property="og:image" content="http://example.com/2023/07/27/javaDay05/insert.gif">
+<meta property="article:published_time" content="2023-07-27T10:23:35.000Z">
+<meta property="article:modified_time" content="2023-07-27T11:59:15.014Z">
+<meta property="article:author" content="zhaojianyun">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2023/07/27/javaDay05/bubble.gif">
+  
+  
+  
+  <title>javaDay05 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>zhaojianyun&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="javaDay05"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-27 18:23" pubdate>
+          2023年7月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          35 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">javaDay05</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-二维数组"><a href="#1-二维数组" class="headerlink" title="1.二维数组"></a>1.二维数组</h1><blockquote>
+<p>回忆二维数组</p>
+<p>元素类型[] 变量 &#x3D; new 元素类型[长度]</p>
+<p><code> 元素类型 - 1.决定了数组中可以存储的数据类型;2.元素类型可以是八种基本数据类型以及对象类型</code></p>
+<p><code>数组本身就是一个对象类型 - int[]</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">比如 <span class="hljs-type">int</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[row][cols];<br>或者 <span class="hljs-type">int</span> arr[][] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[rows][cols];<br></code></pre></td></tr></table></figure>
+
+<p>&#96;二维数组中的每个元素都是一维数组</p>
+</blockquote>
+<hr>
+<h2 id="2-赋值方式"><a href="#2-赋值方式" class="headerlink" title="2.赋值方式"></a>2.赋值方式</h2><blockquote>
+<ol>
+<li>可以通过下标一一赋值</li>
+</ol>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">arr[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">10</span>;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>定义数组的同时进行赋值</li>
+</ol>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[][]&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;,&#123;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;<br><span class="hljs-type">int</span>[][] arr1 = &#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>&#125;,&#123;<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;,&#123;<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;&#125;;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>先定义数组,然后一行一行进行赋值</li>
+</ol>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>];<br><br>arr[<span class="hljs-number">0</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;;<br>arr[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;;<br><span class="hljs-comment">//但是不能这样写</span><br><span class="hljs-comment">//arr[0] = &#123;5,6,7&#125;;//编译时错的</span><br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>定义一个不规则的二维数组,定义二维数组的时候,列时可以省略不写的</li>
+</ol>
+<p>  <code>但是使用之前需要先初始化</code></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">3</span>][];<br>arr[<span class="hljs-number">0</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">1</span>&#125;;<br>arr[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125;;<br>arr[<span class="hljs-number">2</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>&#125;;<br><br>或者<br><span class="hljs-type">int</span>[][] arr5 = &#123;&#123;<span class="hljs-number">100</span>&#125;,&#123;<span class="hljs-number">100</span>,<span class="hljs-number">200</span>&#125;,&#123;<span class="hljs-number">100</span>,<span class="hljs-number">300</span>&#125;&#125;;<br></code></pre></td></tr></table></figure>
+
+</blockquote>
+<hr>
+<h2 id="3-遍历方式"><a href="#3-遍历方式" class="headerlink" title="3.遍历方式"></a>3.遍历方式</h2><blockquote>
+<ol start="0">
+<li><p>通过下标一一输出</p>
+</li>
+<li><p>遍历方式一</p>
+</li>
+</ol>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[][]&#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;,&#123;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;&#125;;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;i &lt;arr.length;i++)&#123;<br>    System.out.println(Arrays.toString(arr[i]));<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>双层for循环遍历</li>
+</ol>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;i&lt;arr.length;i++)&#123;<br>    <span class="hljs-comment">//int[] temp = arr[i];</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;j&lt;arr.length;j++)&#123;<br>        System.out.println(arr[i][j]+<span class="hljs-string">&quot;\t&quot;</span>);<br>    &#125;<br>    System.out.println();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>双层增强for循环</li>
+</ol>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span>[] e:arr)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> t:e)&#123;<br>        System.out.println(t+<span class="hljs-string">&quot;\t&quot;</span>);<br>    &#125;<br>    System.out.println();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>数据工具类java.util.Arrays提供的static String deepToString(数组对象);</li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="2-数组的拷贝"><a href="#2-数组的拷贝" class="headerlink" title="2.数组的拷贝"></a>2.数组的拷贝</h1><blockquote>
+<p>数组中内存中一块连续的空间-并且<code>数组的大小(长度)一旦确定 - 内存中是绝对不允许修改的</code></p>
+<p><code>业务中实现数组的 - 只要影响到数组的大小 - 增加/删除/去重 - 不存在这些操作</code></p>
+</blockquote>
+<hr>
+<blockquote>
+<ol>
+<li>java.util.Arrays</li>
+</ol>
+<p>  static int[] copyOf(int[] original,int newLength);&#x2F;&#x2F;适合在末尾添加数据</p>
+<table>
+<thead>
+<tr>
+<th><code>static</code></th>
+<th><code>copyOf(int[] original,int newLength)</code>复制指定的数组,用零截取或填充(如有必要),以便复制具有指定的长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>original - 原来的数组 , newLength&#x3D;&gt;新数组长度</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>java.lang.System</li>
+</ol>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">System.arraycopy(original,<span class="hljs-number">0</span>,copy,<span class="hljs-number">0</span>,Math.min(original.length,newLength));<br><span class="hljs-number">1.</span>original - 原数组<br><span class="hljs-number">2.0</span> - 从原数组的哪个下标开始拷贝<br><span class="hljs-number">3.</span>copy - 目标数组<br><span class="hljs-number">4.0</span> - 拷贝到目标数组的哪个位置<br><span class="hljs-number">5.</span>最后一个长度 - 拷贝的个数<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h1 id="N-数组排序"><a href="#N-数组排序" class="headerlink" title="N.数组排序"></a>N.数组排序</h1><h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><p>相邻两个进行两两比较.每一个轮比完 - 确定一个值</p>
+<img src="/2023/07/27/javaDay05/bubble.gif" srcset="/img/loading.gif" lazyload class="">
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java">猴子🐒摘玉米=&gt;摘一个玉米,和手上的进行比较.保留小的<br>每次循环也是确定一个最值<br><span class="hljs-comment">//冒泡排序</span><br>   <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">bubbleSort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] arr)</span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;i&lt;arr.length;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j&lt;arr.length-<span class="hljs-number">1</span>-i;j++)&#123;<br>            <span class="hljs-keyword">if</span>(arr[j]&gt;arr[j+<span class="hljs-number">1</span>])&#123;<br>                arr[j] = arr[j]^arr[j+<span class="hljs-number">1</span>];<br>                arr[j+<span class="hljs-number">1</span>] = arr[j]^arr[j+<span class="hljs-number">1</span>];<br>                arr[j] = arr[j]^arr[j+<span class="hljs-number">1</span>];<br>            &#125;  <br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2.选择排序"></a>2.选择排序</h2><img src="/2023/07/27/javaDay05/select.gif" srcset="/img/loading.gif" lazyload class="">
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java">从数组的第一个位置,拿着这个值和后面的所有的数据进行比较,如果后面的值比这个位置的值要小,则交换<br>每次都可以确定剩余值的最小值 - 从小排到大<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">selectSort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] arr)</span>&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-literal">null</span>==arr || arr.length==<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span>;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i&lt;arr.length;i++)&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=i+<span class="hljs-number">1</span>; j&lt;arr.length;j++)&#123;<br>            <span class="hljs-keyword">if</span>(arr[i]&gt;arr[j])&#123;<br>                arr[i] = arr[i]^arr[j];<br>                arr[j] = arr[i]^arr[j];<br>                arr[i] = arr[i]^arr[j];<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h2><p>简介:<strong>最简单的</strong></p>
+<p>将数组中剩余的值(从数组中第二个位置开始)依次直接插入到前面,<strong>保证前面的序列依然是个有序的序列</strong></p>
+<p>类似于<code>斗地主-摸牌</code></p>
+<p>{3,1,2,5,4,6}</p>
+<p>{<strong>3</strong>,1,2,5,4,6}</p>
+<p>{<strong>1,3</strong>,2,5,4,6}</p>
+<p>{<strong>1,2,3</strong>,5,4,6}</p>
+<p>….</p>
+<img src="/2023/07/27/javaDay05/insert.gif" srcset="/img/loading.gif" lazyload class="">
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//从小到大</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sortDirecctInsert</span><span class="hljs-params">(<span class="hljs-type">int</span>[] arr)</span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> == arr || arr.length==<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-comment">//从第二个位置,下标为1</span><br>    <br>    <span class="hljs-comment">//桌子牌 3,1,2,5,4,6</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span><span class="hljs-number">1</span>;i&lt;arr.length;i++)&#123;<br>        <span class="hljs-comment">//摸了一张牌3</span><br>        <span class="hljs-comment">//arr[2] = 2</span><br>        <br>        <span class="hljs-comment">//记录手中的牌的顺序=&gt; 1,2,3</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=i;j&gt;<span class="hljs-number">0</span>;j--)&#123;<br>            <span class="hljs-keyword">if</span>(arr[j-<span class="hljs-number">1</span>]&gt;arr[j])&#123;<br>                arr[j-<span class="hljs-number">1</span>] = arr[j-<span class="hljs-number">1</span>]^arr[j];<br>                arr[j] = arr[j-<span class="hljs-number">1</span>]^arr[j];<br>                arr[j-<span class="hljs-number">1</span>] = arr[j-<span class="hljs-number">1</span>]^arr[j];<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-快速排序"><a href="#4-快速排序" class="headerlink" title="4. 快速排序"></a>4. 快速排序</h2><p>算法思想:</p>
+<p>分治思想:比大小,在分区</p>
+<ol>
+<li><p>从数组中取出一个数,作为<strong>基准数</strong></p>
+</li>
+<li><p>分区:将比这个数大或者等于的数全部放在它的右边,小于它的数全部放它的左边</p>
+</li>
+<li><p>再对左右分区间重复第二步骤,直到各分区只有一个数</p>
+</li>
+</ol>
+<p>实现思路</p>
+<p><code>挖坑填数</code></p>
+<ol>
+<li><p><strong>将基准数挖出形成第一个坑</strong></p>
+</li>
+<li><p><strong>有后向前找出比它小的数,找出后挖出此数填到前一个坑中</strong></p>
+</li>
+<li><p><strong>有后向前找出比它大或等于的数,找出后也挖出此数填到前一个坑中</strong></p>
+</li>
+<li><p><strong>在重复执行2,3步骤.例如5391672408</strong></p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>5</th>
+<th>3</th>
+<th>9</th>
+<th>1</th>
+<th>6</th>
+<th>7</th>
+<th>2</th>
+<th>4</th>
+<th>0</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>坑位</td>
+<td>坑0</td>
+<td></td>
+<td>坑2</td>
+<td></td>
+<td>坑4</td>
+<td>重合的位置</td>
+<td>坑5</td>
+<td>坑3</td>
+<td>坑1</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>0</td>
+<td>3</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>5基准数</td>
+<td>7</td>
+<td>6</td>
+<td>9</td>
+<td>8</td>
+</tr>
+<tr>
+<td>坑位</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>第一轮以数组中的第一个元素5为基准数 - 经过一轮循环走完 - 以5位置为基准,左边的都是比5小的值,右边的都是大于或者等于5的数字 - <strong>关键就是找到重合的位置!!!(分区 - 递归调用)</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//快速排序</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">quickSort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] arr,<span class="hljs-type">int</span> startIndex,<span class="hljs-type">int</span> endIndex)</span>&#123;<br>    <span class="hljs-keyword">if</span> (startIndex&lt;endIndex)&#123;<br>        <span class="hljs-comment">//1.找到重合的位置</span><br>        <span class="hljs-comment">//分区 - 挖坑填数</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">index</span> <span class="hljs-operator">=</span> getIndex(arr,startIndex,endIndex);<br>        <br>        <span class="hljs-comment">//2.递归调用自己</span><br>        <span class="hljs-comment">//index左边的</span><br>        quickSort(arr,startIndex,index -<span class="hljs-number">1</span>);<br>        <br>        <span class="hljs-comment">//index右边的</span><br>        quickSort(arr,index+<span class="hljs-number">1</span>,endIndex)<br>    &#125;<br>&#125;<br><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getIndex</span><span class="hljs-params">(<span class="hljs-type">int</span>[] arr,<span class="hljs-type">int</span> startIndex,<span class="hljs-type">int</span> endIndex)</span>&#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> startIndex;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> endIndex;<br>    <span class="hljs-comment">//1.确定基准数</span><br>    <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> arr[i];<br>    <br>    <span class="hljs-keyword">while</span>(i&lt;j)&#123;<br>        <span class="hljs-comment">//由后向前找比它小的数,找到后挖出此数填到前一个坑中</span><br>        <span class="hljs-keyword">while</span>(i&lt;j&amp;&amp;arr&#123;j&#125;&gt;=x)&#123;<br>            j--;<br>        &#125;<br>        <span class="hljs-comment">//如果arr[j]&lt;x</span><br>        <span class="hljs-keyword">if</span>(i&lt;j)&#123;<br>            arr[i] = arr&#123;j&#125;;<br>            i++;<br>        &#125;<br>        <span class="hljs-comment">//由前向后找比它大或等于的数,找到后也挖出此数填到前一个坑中</span><br>        <span class="hljs-keyword">while</span>(i&lt;j &amp;&amp; arr&#123;i&#125;&lt;x)&#123;<br>            i++;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(i&lt;j)&#123;<br>            <span class="hljs-comment">//arr[i]开始大于等于x</span><br>            arr[j] = arr[i];<br>            j--;<br>        &#125;<br>    &#125;<br>      <span class="hljs-comment">//说明i开始j重合</span><br>    arr[i] = x;<span class="hljs-comment">//把基准数放入到重合位置</span><br>    <span class="hljs-keyword">return</span> i;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>javaDay05</div>
+      <div>http://example.com/2023/07/27/javaDay05/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zhaojianyun</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/07/27/javaDay06/" title="javaDay06">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">javaDay06</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/21/java04day/" title="java04day">
+                        <span class="hidden-mobile">java04day</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"cjSRaHjVct433ecqvOb7GKO8-gzGzoHsz","appKey":"rKANDeUTFhtMb7q5BY2msTYj","path":"window.location.pathname","placeholder":"Just go go","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"visitor":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/zhaojianyun/zhaojianyun.github.io.git" target="_blank" rel="nofollow noopener"><span>zhaojianyun</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,809 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zhaojianyun">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="java8.x之前提供了两种关于日期类型的处理,当然jdk8.x新增了一些关于日期处理的api.  java.util.Date - 日期处理类,大部分的方法是过时的 java.util.Calendar - 日历处理类,用来代替Date使用的    2.Date日期类型 api手册中  看方法 - 静态方法直接使用类调用,非静态方法使用对象调用  如何创建对象 - api手册的构造方法 - 使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaDay06">
+<meta property="og:url" content="http://example.com/2023/07/27/javaDay06/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="java8.x之前提供了两种关于日期类型的处理,当然jdk8.x新增了一些关于日期处理的api.  java.util.Date - 日期处理类,大部分的方法是过时的 java.util.Calendar - 日历处理类,用来代替Date使用的    2.Date日期类型 api手册中  看方法 - 静态方法直接使用类调用,非静态方法使用对象调用  如何创建对象 - api手册的构造方法 - 使">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-27T11:59:36.000Z">
+<meta property="article:modified_time" content="2023-07-27T12:37:53.237Z">
+<meta property="article:author" content="zhaojianyun">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>javaDay06 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>zhaojianyun&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="javaDay06"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-27 19:59" pubdate>
+          2023年7月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">javaDay06</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>java8.x之前提供了两种关于日期类型的处理,当然jdk8.x新增了一些关于日期处理的api.</p>
+<ol>
+<li>java.util.Date - 日期处理类,大部分的方法是过时的</li>
+<li>java.util.Calendar - 日历处理类,用来代替Date使用的</li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="2-Date日期类型"><a href="#2-Date日期类型" class="headerlink" title="2.Date日期类型"></a>2.Date日期类型</h1><blockquote>
+<p>api手册中</p>
+<ol>
+<li><p>看方法 - 静态方法直接使用类调用,非静态方法使用对象调用</p>
+</li>
+<li><p>如何创建对象 - api手册的构造方法 - 使用new关键字</p>
+</li>
+</ol>
+<p>  <code>1. 构造方法的名称和类名一致</code></p>
+<p>  <code>2.构造方法允许重载</code></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>构造方法</p>
+<ol>
+<li>仅有两个没有过时的</li>
+</ol>
+<ul>
+<li>Date();&#x2F;&#x2F;获取当前系统的日期</li>
+<li>Date(long time);&#x2F;&#x2F;根据指定的毫秒数来构建指定的日期对象</li>
+</ul>
+<ol start="2">
+<li>已经弃用的 - 过时的</li>
+</ol>
+<ul>
+<li>Date(int year,int month,int date);&#x2F;&#x2F;根据指定的年月日来构建指定的日期函数<ol>
+<li>year - 1900</li>
+<li>month的范围是[0,11]</li>
+</ol>
+</li>
+<li>Date(int year,int month,int date,int hours,int minutes,int seconds);&#x2F;&#x2F;根据指定的年月日时分秒来构建指定的日期对象</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p>普通方法</p>
+<ol>
+<li>long getTime();获取日期的毫秒数</li>
+<li>int getXXX();;&#x2F;&#x2F;XXX可以是年月日时分秒,注意Day[周几,周日是返回0]</li>
+<li>void setXXX(int n);&#x2F;&#x2F;设置日期字段的值</li>
+<li>void setTime(long date);&#x2F;&#x2F;根据指定的毫秒数来重新设置Date的字段值</li>
+</ol>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>总结</code></p>
+<ol>
+<li>Date类型如何转成long毫秒数</li>
+</ol>
+<ul>
+<li>long getTime()</li>
+</ul>
+<ol start="2">
+<li>long毫秒数来转换成Date类型值</li>
+</ol>
+<ul>
+<li>利用构造Date(long time)</li>
+<li>利用方法void setTime(long date);</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="3-Calendar日历类"><a href="#3-Calendar日历类" class="headerlink" title="3.Calendar日历类"></a>3.Calendar日历类</h1><blockquote>
+<p><code>源码</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Calendar</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span>, Cloneable, Comparable&lt;Calendar&gt; &#123;<br> <span class="hljs-comment">//...</span><br>&gt;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>abstract 定义的类 - <code>抽象类</code>-不能够被实例化[不能够被new],<strong>也就说明不能这样去创建对象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-type">Calendar</span> <span class="hljs-variable">cal</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Calendar</span>();<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>##创建日历对象</p>
+<ol>
+<li><p>static Calendar getlnstance();</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Calendar</span> <span class="hljs-variable">cal</span> <span class="hljs-operator">=</span> Calendar.getInstance();<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p><code>分析一下源码gerInstance</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Calendar <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span>&#123;<br>  <span class="hljs-type">Locale</span> <span class="hljs-variable">aLocale</span> <span class="hljs-operator">=</span> Locale.getDefault(Locale.Category.FORMAT);<br>  <span class="hljs-keyword">return</span> createCalendar(defaultTimeZone(aLocale), aLocale);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>接着看createCalendar方法的底层 - 核心代码</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Calendar <span class="hljs-title function_">createCalendar</span><span class="hljs-params">(TimeZone zone,Locale aLocale)</span>&#123;<br>   <span class="hljs-comment">//..</span><br>  <span class="hljs-type">Calendar</span> <span class="hljs-variable">cal</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>  <br>  <span class="hljs-comment">//..</span><br>   cal = <span class="hljs-keyword">switch</span> (caltype) &#123;<br>     <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;buddhist&quot;</span> -&gt; <span class="hljs-keyword">new</span> <span class="hljs-title class_">BuddhistCalendar</span>(zone, aLocale);<br>     <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;japanese&quot;</span> -&gt; <span class="hljs-keyword">new</span> <span class="hljs-title class_">JapaneseImperialCalendar</span>(zone, aLocale);<br>     <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;gregory&quot;</span>  -&gt; <span class="hljs-keyword">new</span> <span class="hljs-title class_">GregorianCalendar</span>(zone, aLocale);<br>     <span class="hljs-keyword">default</span>         -&gt; <span class="hljs-literal">null</span>;<br>   &#125;;<br>  <br>  <span class="hljs-comment">//...</span><br>  <br>  <span class="hljs-keyword">return</span> cal;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">假设 - cal = <span class="hljs-keyword">new</span> <span class="hljs-title class_">GregorianCalendar</span>(zone, aLocale);<br><br><span class="hljs-comment">//父类 对象 = new 子类();</span><br>补全: <span class="hljs-type">Calendar</span> <span class="hljs-variable">cal</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GregorianCalendar</span>(zone, aLocale);<br></code></pre></td></tr></table></figure>
+
+<p><code>GregorianCalendar.java源码</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//GregorianCalendar继承Calendar.</span><br><span class="hljs-comment">//暂时 - Calendar(父类 - 爸爸),GregorianCalendar(子类 - 儿子)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GregorianCalendar</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Calendar</span> &#123;....&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-关于静态字段"><a href="#2-关于静态字段" class="headerlink" title="2.关于静态字段"></a>2.关于静态字段</h2><blockquote>
+<p>也叫静态域….静态属性 - 全部变量</p>
+<p>static修饰的全局变量 - 静态域</p>
+</blockquote>
+<h2 id="3-final关键字"><a href="#3-final关键字" class="headerlink" title="3.final关键字"></a>3.final关键字</h2><blockquote>
+<ol>
+<li>final修饰的变量 - 常量 - 不可改变</li>
+<li>final修饰的属性 - 常量属性- 不可改变</li>
+<li>final和static一起修饰的属性 - 公开的静态的常量属性</li>
+<li>常量&#x2F;常量属性都是推荐是用大写字母,如果存在多个单词,那么多个单词之间使用_隔开</li>
+<li>优势 - 见名知意</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="4-常用方法"><a href="#4-常用方法" class="headerlink" title="4.常用方法"></a>4.常用方法</h2><blockquote>
+<ol>
+<li>int get(int field);根据给定的参数来获取日历指定的字段上去</li>
+<li>void set(int field,int value);&#x2F;&#x2F;将指定的value设置到日历指定的字段上去</li>
+<li>void set(int year,int month,int date);通过指定的年月日来设置日历的值</li>
+<li>Date getTime();&#x2F;&#x2F;返回日历信息中的关于日期字段的中&#x3D;&gt;Calendar类型转换Date类型</li>
+<li>void setTime(Date d);&#x2F;&#x2F;通过Date来设置日历,Date类型&#x3D;&gt;Calendar类型</li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="4-日期的格式化"><a href="#4-日期的格式化" class="headerlink" title="4. 日期的格式化"></a>4. 日期的格式化</h1><blockquote>
+<p>api:java.text.SimpleDateFormat</p>
+</blockquote>
+<h2 id="1-构造方法"><a href="#1-构造方法" class="headerlink" title="1. 构造方法"></a>1. 构造方法</h2><blockquote>
+<p>SimpleDateFormat(String pattern);&#x2F;&#x2F;利用一个合法的日期的字符串模板来构建日期格式化的对象</p>
+</blockquote>
+<h2 id="2-常用的方法"><a href="#2-常用的方法" class="headerlink" title="2. 常用的方法"></a>2. 常用的方法</h2><ol>
+<li><p>String format(Date d);&#x2F;&#x2F;将日期格式化成日期&#x2F;时间字符串</p>
+<p>日期转成指定格式的字符串</p>
+</li>
+<li><p>Date parse(String strDate);&#x2F;&#x2F;指定格式的字符串转换成指定格式的日期</p>
+</li>
+</ol>
+<h1 id="5-获取键盘输入"><a href="#5-获取键盘输入" class="headerlink" title="5. 获取键盘输入"></a>5. 获取键盘输入</h1><blockquote>
+<p>api:java.util</p>
+<p>类:Scanner</p>
+</blockquote>
+<h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><blockquote>
+<p>Scanner(InputStream in)</p>
+</blockquote>
+<h2 id="常用的方法"><a href="#常用的方法" class="headerlink" title="常用的方法"></a>常用的方法</h2><ol>
+<li>int nextInt();&#x2F;&#x2F;只能获取整数</li>
+<li>double nextDouble();&#x2F;&#x2F;只能获取小数</li>
+<li>String nextLine();&#x2F;&#x2F;获取字符串</li>
+</ol>
+<hr>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">注意点<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><p>如果使用nextInt或者nextDouble获取了非法的字符,一定会抛出java.util.InputMismatchException - 输入不匹配异常.</p>
+</li>
+<li><p>在调用nextLine调用之前千万不要调用nextInt或者nextDouble,否则会导致nextLine失效.</p>
+<p>如果先调用nextLine是没有问题的.</p>
+</li>
+<li><p>推荐直接使用nextLine - <strong>后期会学习String和int类型或者double类型之间的转换.</strong></p>
+</li>
+</ol>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java">分析一下注意点发生的原因:<br><span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>System.out.print(<span class="hljs-string">&quot;请输入a:&gt;&quot;</span>);<br><span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> sc.nextInt();<br>System.out.println(<span class="hljs-string">&quot;n:&quot;</span>+n);<br>控制台输出<br>请输入a:&gt;<span class="hljs-number">10</span><br>n:<span class="hljs-number">10</span><br>nextInt明显换行了 - 没有接受\n符号 - 只能接受整数<br><span class="hljs-keyword">package</span> tech.aistar.day06;<br><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 本来用来演示:</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> success</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2023/7/25 09:48:47</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ScannerTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        System.out.print(<span class="hljs-string">&quot;请输入a:&gt;&quot;</span>);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> sc.nextInt();<br>        System.out.println(<span class="hljs-string">&quot;n:&quot;</span>+n);<br><br>        <span class="hljs-comment">//如果非要nextInt调用完之后使用nextLine,为了避免真正的nextLine失效</span><br>        <span class="hljs-comment">//可以多写一个nextLine来处理一下\n</span><br>        sc.nextLine();<br><br>        System.out.print(<span class="hljs-string">&quot;输入字符串:&gt;&quot;</span>);<br>        <span class="hljs-comment">//其实它没有失效,只是接受完毕了,接受到了nextInt没有处理的\n</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">line</span> <span class="hljs-operator">=</span> sc.nextLine();<br>        System.out.println(<span class="hljs-string">&quot;line:&quot;</span>+line);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>javaDay06</div>
+      <div>http://example.com/2023/07/27/javaDay06/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zhaojianyun</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/07/27/javaDay07/" title="javaDay07">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">javaDay07</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/27/javaDay05/" title="javaDay05">
+                        <span class="hidden-mobile">javaDay05</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"cjSRaHjVct433ecqvOb7GKO8-gzGzoHsz","appKey":"rKANDeUTFhtMb7q5BY2msTYj","path":"window.location.pathname","placeholder":"Just go go","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"visitor":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/zhaojianyun/zhaojianyun.github.io.git" target="_blank" rel="nofollow noopener"><span>zhaojianyun</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
